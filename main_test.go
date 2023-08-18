@@ -15,10 +15,20 @@ func TestMain(t *testing.T){
         want:="Hello, World"
         assertMessage(t,got,want)
     })
+    t.Run("iteration stuff",func(t *testing.T){
+        got:=Repeated("a")
+        want:="aaaaa"
+        assertMessage(t,got,want)
+    })
 }
 func assertMessage(t testing.TB,got,want string){
     t.Helper()
     if got!=want{
         t.Errorf("got %q want %q",got,want)
+    }
+}
+func BenchmarkRepeated(b *testing.B){
+    for i:=0;i<b.N;i++{
+        Repeated("a")
     }
 }
