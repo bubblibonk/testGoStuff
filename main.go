@@ -3,7 +3,7 @@ package main
 import(
     "fmt"
 )
-const num = 5
+const :num = 5
 func Repeated(character string)string{
     var repeated string
 
